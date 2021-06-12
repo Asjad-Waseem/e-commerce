@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
+
+import { addItem } from '../../../redux/cartItems';
 
 import { Col, Card } from 'react-bootstrap';
 import { FaCartPlus } from 'react-icons/fa';
@@ -17,43 +19,23 @@ import availableProducts from '../../../data/availableProductsData.json';
 
 function ProductCard() {
 
-    const cartItemsQuantity = useSelector((state) => state.items)
+    const dispatch = useDispatch();
 
-    // const dispatch = useDispatch();
+    // const cartItemsQuantity = useSelector((state) => state.cartItems.cartItemsQuantity);
 
-    // const onAddProduct = (event) => {
+    const productsAvailable = availableProducts.products;
 
-    //     dispatch(addItem(itemDetails))
-        
-    // }
+    const onAddProductToCart = (product) => {
 
-    // const onAddProduct = () => {
+        dispatch(addItem(product));
 
-    //     console.log("dasdsadsa");
-
-    // }
-
-    // let pName;
-    // let pDesc;
-    // let pPrice;
-
-    // const itemDetails = [
-
-    //     pName = 'a',
-    //     pDesc = 'b',
-    //     pPrice = '$100'
-
-    // ]
-
-    // const onAddProduct = (event) => {
-    
-    //         dispatch(switchActiveBusiness(businessName, _id));
-    
-    // }
-
-    // console.log(availableProducts);
+    }
 
     return (
+
+        <>
+
+        { productsAvailable && productsAvailable.map((product) => (
 
         <Col md = "12 mt-4">
 
@@ -65,13 +47,13 @@ function ProductCard() {
 
                 <div className = "product__details ml-2 mr-2 mt-3">
         
-                    <p className = "text__gray text__bold">Product Name</p>
-                    <p>Product Description</p>
+                    <p className = "text__gray text__bold">{product.Name}</p>
+                    <p>{product.Description}</p>
         
                     <div className = "product__remove">
             
-                        <p className = "text__bold">$100</p>
-                        <Link to = "/"><FaCartPlus className = "product__action"/></Link>
+                        <p className = "text__bold">{product.Price}</p>
+                        <Link to = "/" onClick = {() => onAddProductToCart(product)}><FaCartPlus className = "product__action"/></Link>
         
                     </div>
             
@@ -80,6 +62,10 @@ function ProductCard() {
             </div>
     
         </Col>
+
+        ))}
+
+        </>
         
     );
 }

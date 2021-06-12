@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,11 +12,19 @@ import Navbar from '../../components/common/navbar/AppNavbar';
 import PayNowButton from '../../components/common/PayNowButton';
 import ProductCardCart from '../../components/common/productCardCart/ProductCardCart';
 import ProductCardAvailableProducts from '../../components/common/productCardAvailableProducts/ProductCardAvailableProducts';
+import SearchBox from '../../components/common/search box/SearchBox';
+
+// Data Import
+import availableProducts from '../../data/availableProductsData.json';
 
 // Assets Import
 import './ProductsPage.css';
 
 function ProductsPage() {
+
+    const [ searchField, setSearchField ] = useState();
+
+    // const onSearchFunctionality = 
 
     // const { cartItems } = useSelector((state) => state.cartItems);
     // const dispatch = useDispatch();
@@ -66,9 +74,15 @@ function ProductsPage() {
                     <div className="text-center">
 
                         <h4 className = "total__amount mt-4">Available Products</h4>
-                        <Form>
-                            <FormControl type="text" placeholder="Search" className="search__products mr-sm-2" />
-                        </Form>
+
+                        <SearchBox placeholder = "Search"
+                                   handleChange = {(e) => setSearchField(searchField => e.target.value)} />
+                        {/* <Form onSubmit = {onSearchFunctionality}>
+                            <FormControl type="search" 
+                                         placeholder="Search" 
+                                         className="search__products mr-sm-2"
+                                         onChange = {} />
+                        </Form> */}
                                
                     </div>
 
@@ -77,10 +91,6 @@ function ProductsPage() {
                     <Row>
 
                         <ProductCardAvailableProducts />                    
-                        <ProductCardAvailableProducts />
-                        <ProductCardAvailableProducts />
-                        <ProductCardAvailableProducts />
-                        <ProductCardAvailableProducts /> 
 
                     </Row>
 

@@ -1,8 +1,8 @@
 { "products" : [
-    { "id": "1", "Name": "Product Name", "Description" : "Product Description", "Price": "$100"},
-    { "id": "2", "Name": "Product Name", "Description" : "Product Description", "Price": "$200"},
-    { "id": "3", "Name": "Product Name", "Description" : "Product Description", "Price": "$300"},
-    { "id": "4", "Name": "Product Name", "Description" : "Product Description", "Price": "$400"},
-    { "id": "5", "Name": "Product Name", "Description" : "Product Description", "Price": "$500"}, 
-    { "id": "6", "Name": "Product Name", "Description" : "Product Description", "Price": "$600"}
+    { "id": "1", "Name": "Product 1", "Description" : "Product Description", "Price": "$100"},
+    { "id": "2", "Name": "Product 2", "Description" : "Product Description", "Price": "$200"},
+    { "id": "3", "Name": "Product 3", "Description" : "Product Description", "Price": "$300"},
+    { "id": "4", "Name": "Product 4", "Description" : "Product Description", "Price": "$400"},
+    { "id": "5", "Name": "Product 5", "Description" : "Product Description", "Price": "$500"}, 
+    { "id": "6", "Name": "Product 6", "Description" : "Product Description", "Price": "$600"}
   ]}
