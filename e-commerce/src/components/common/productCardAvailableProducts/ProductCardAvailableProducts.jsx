@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -19,9 +19,9 @@ import availableProducts from '../../../data/availableProductsData.json';
 
 function ProductCard() {
 
-    const dispatch = useDispatch();
+    const searchItem = useSelector(state => state.cartItems.searchState);
 
-    // const cartItemsQuantity = useSelector((state) => state.cartItems.cartItemsQuantity);
+    const dispatch = useDispatch();
 
     const productsAvailable = availableProducts.products;
 
@@ -35,7 +35,7 @@ function ProductCard() {
 
         <>
 
-        { productsAvailable && productsAvailable.map((product) => (
+        { productsAvailable && productsAvailable.filter(searchProduct => searchProduct.Name.toLowerCase().includes(searchItem.toLowerCase())).map(product => ( 
 
         <Col md = "12 mt-4">
 

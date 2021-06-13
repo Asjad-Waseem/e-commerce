@@ -9,13 +9,25 @@
     background: #ffffff;
     border-radius: 5px;
     border: 1px solid rgba(0,0,0,.125);
+    height: 100vh;
+    overflow-x: auto;
+    margin-bottom: 20px;
+
 
 }
 
+div.cart__col::-webkit-scrollbar {
+    width: 5px;
+    background-color: #888;
+}
+
+div.available__products__col::-webkit-scrollbar {
+    width: 5px;
+    background-color: #888;
+}
+   
 .total__amount {
-
     color: #0066cc;
-
 }
 
 @media only screen and (max-width: 449px) {
@@ -34,15 +46,15 @@
 
 @media only screen and (min-width: 450px) {
 
-.cart__details {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-weight: bold;
-    flex-direction: row;
-
-}
+    .cart__details {
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-weight: bold;
+        flex-direction: row;
+    
+    }
 
 }
 
