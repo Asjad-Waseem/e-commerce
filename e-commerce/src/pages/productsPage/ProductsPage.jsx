@@ -24,6 +24,15 @@ function ProductsPage() {
 
     const [ searchField, setSearchField ] = useState();
 
+    const searchProducts = () => {
+
+        availableProducts.products.filter(availableProduct => {
+
+            return availableProduct.Name.includes(searchField);
+
+        })
+    }
+
     // const onSearchFunctionality = 
 
     // const { cartItems } = useSelector((state) => state.cartItems);
@@ -76,7 +85,8 @@ function ProductsPage() {
                         <h4 className = "total__amount mt-4">Available Products</h4>
 
                         <SearchBox placeholder = "Search"
-                                   handleChange = {(e) => setSearchField(searchField => e.target.value)} />
+                            handleChange = {(e) => { setSearchField(searchField => e.target.value); searchProducts(); }} />
+
                         {/* <Form onSubmit = {onSearchFunctionality}>
                             <FormControl type="search" 
                                          placeholder="Search" 
